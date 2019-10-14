@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.xxx.mapper.UserMapper" >
+    <select id="selectUserByName1" resultType="user">
+        select * from user where stu_ID = '116333540101'
+    </select>
+    <select id="selectUserByNameAndPassword" resultType="com.example.xxx.entity.User">
+        select * from user where u_name=#{u_name} and password=#{password}
+    </select>
+
+</mapper>

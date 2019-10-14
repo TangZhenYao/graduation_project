@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.xxx.mapper.TeacherMapper" >
+    <!--登录-->
+    <select id="selectByT_nameAndPassword" resultType="com.example.xxx.entity.Teacher">
+        select * from teacher where t_name=#{t_name} and t_password=#{t_password}
+    </select>
+    <!--根据tea_ID查询老师信息-->
+    <select id="selectTeacherByTea_ID" resultType="teacher">
+        select * from teacher where tea_ID=#{tea_ID}
+    </select>
+    <!--查询所有老师信息-->
+    <resultMap id="teacherMap" type="teacher">
+        <id property="t_id" column="t_id"/>
+        <result property="tea_ID" column="tea_ID"/>
+        <result property="t_name" column="t_name"/>
+        <result property="t_password" column="t_password"/>
+        <result property="t_address" column="t_address"/>
+        <result property="t_class" column="t_class"/>
+        <result property="t_phone" column="t_phone"/>
+        <collection property="list" column="tea_ID" select="com.example.xxx.mapper.SubjectsMapper.selectSubjects" />
+    </resultMap>
+    <select id="selectTeacher" resultType="teacher" resultMap="teacherMap">
+        select * from teacher
+    </select>
+
+
+</mapper>

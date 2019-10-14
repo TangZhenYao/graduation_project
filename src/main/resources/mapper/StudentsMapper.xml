@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.xxx.mapper.StudentsMapper" >
+    <!--登录-->
+    <select id="selectByStu_IDAndPassword" resultType="com.example.xxx.entity.Students">
+        select * from students where stu_ID=#{stu_ID} and s_password=#{s_password}
+    </select>
+
+</mapper>
