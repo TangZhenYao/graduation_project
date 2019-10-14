@@ -15,4 +15,6 @@ import java.util.List;
 @Mapper
 public interface SubjectsMapper {
     public List<Subjects> selectSubjects();
+
+    public Subjects selectSubjectsBySu_id(Integer su_id);
 }

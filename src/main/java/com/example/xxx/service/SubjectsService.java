@@ -20,5 +20,11 @@ public class SubjectsService {
     @Autowired
     private SubjectsMapper subjectsMapper;
 
+    public Subjects selectSubjectsBySu_id(Integer su_id) {
+        return subjectsMapper.selectSubjectsBySu_id(su_id);
+    }
 
+
+//    public void selectSubjectsBySu_id(Integer su_id) {
+//    }
 }

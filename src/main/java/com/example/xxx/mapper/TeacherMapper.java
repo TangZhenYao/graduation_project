@@ -16,4 +16,6 @@ import java.util.List;
 public interface TeacherMapper {
     public Teacher selectByT_nameAndPassword(String t_name, String t_password);
     public List<Teacher> selectTeacher();
+
+    public Teacher selectTeacherByTea_ID(String tea_ID);
 }

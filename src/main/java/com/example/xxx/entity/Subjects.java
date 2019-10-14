@@ -12,6 +12,7 @@ public class Subjects {
     private String su_name;
     private String su_description;
     private String tea_ID;
+    private Teacher teacher;
 
     @Override
     public String toString() {
@@ -20,7 +21,16 @@ public class Subjects {
                 ", su_name='" + su_name + '\'' +
                 ", su_description='" + su_description + '\'' +
                 ", tea_ID='" + tea_ID + '\'' +
+                ", teacher=" + teacher +
                 '}';
+    }
+
+    public Teacher getTeacher() {
+        return teacher;
+    }
+
+    public void setTeacher(Teacher teacher) {
+        this.teacher = teacher;
     }
 
     public Integer getSu_id() {

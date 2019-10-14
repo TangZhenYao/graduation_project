@@ -6,11 +6,21 @@
         <result property="su_name" column="su_name"/>
         <result property="su_description" column="su_description"/>
         <result property="tea_ID" column="tea_ID"/>
-        <collection property="ti" column="tea_ID" select="com.example.xxx.mapper.TeacherMapper.selectTeacherByTea_ID"/>
+        <!--<association property="teacher" column="tea_ID" select="com.example.xxx.mapper.TeacherMapper.selectTeacherByTea_ID"/>-->
     </resultMap>
     <!--查询毕业设计信息（所有）-->
     <select id="selectSubjects" resultType="com.example.xxx.entity.Subjects">
         select * from subjects
+    </select>
+    <resultMap id="selectSubjectsBySu_idmap" type="subjects">
+        <id property="su_id" column="su_id"/>
+        <result property="su_name" column="su_name"/>
+        <result property="su_description" column="su_description"/>
+        <result property="tea_ID" column="tea_ID"/>
+        <association property="teacher" column="tea_ID" select="com.example.xxx.mapper.TeacherMapper.selectTeacherByTea_ID"/>
+    </resultMap>
+    <select id="selectSubjectsBySu_id" resultType="com.example.xxx.entity.Subjects" resultMap="selectSubjectsBySu_idmap">
+        select * from subjects where su_id=#{su_id}
     </select>
 
 

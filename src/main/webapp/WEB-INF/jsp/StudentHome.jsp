@@ -40,9 +40,11 @@
             <input type="submit" value="选修">
         </td>
         <td>
-            <%--<a href="selectSubjects?id=${s.su_id}">详情</a>--%>
-                <input type="button" value="详情">
-        </td></tr>
+            <a href="selectSubjects?su_id=${s.su_id}">详情</a>
+            <%--<input type="button" value="详情">--%>
+        </td>
+        <%--<td><button type="submit" value="Submit">Submit</button></td>--%>
+        </tr>
         </c:forEach>
         </c:forEach>
     <br/>
