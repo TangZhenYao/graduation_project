@@ -20,13 +20,13 @@ public class DissertationService {
     private DissertationMapper dissertationMapper;
 
     public List<Dissertation> selectDissertationByStu_ID(String stu_id) {
-        List<Dissertation> dissertations = dissertationMapper.selectDissertationByStu_ID(stu_id);
-        for (Dissertation dissertation : dissertations) {
-            System.out.println("DissertationMapper返回给DissertationServcie的值："+dissertations);
+        List<Dissertation> list = dissertationMapper.selectDissertationByStu_ID(stu_id);
+        for (Dissertation lists : list) {
+            System.out.println("DissertationMapper返回给DissertationServcie的值："+lists);
 
         }
 
-        return dissertations;
+        return list;
     }
 }
 

@@ -16,6 +16,19 @@ public class Dissertation {
     private String stu_ID;
     private String tea_ID;
 
+    @Override
+    public String toString() {
+        return "Dissertation{" +
+                "d_id=" + d_id +
+                ", d_name='" + d_name + '\'' +
+                ", d_address='" + d_address + '\'' +
+                ", d_comment='" + d_comment + '\'' +
+                ", d_score='" + d_score + '\'' +
+                ", stu_ID='" + stu_ID + '\'' +
+                ", tea_ID='" + tea_ID + '\'' +
+                '}';
+    }
+
     public Integer getD_id() {
         return d_id;
     }

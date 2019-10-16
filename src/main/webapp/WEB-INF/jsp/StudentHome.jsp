@@ -58,20 +58,21 @@
         <td>评论</td>
         <td>评分</td>
     </tr>
-    <tr>
-        <%--<c:forEach items="Dissertation" var="p">
+    <c:forEach items="${dissertation}" var="p">
+        <tr>
             <td>${p.d_id}</td>
             <td>${p.d_name}</td>
             <td>${p.d_comment}</td>
             <td>${p.d_score}</td>
             <td>
-                <a href="selectDissertation?id=${p.d_id}">详情</a>
+                <input type="submit" value="下载论文">
+                <%--<a href="selectDissertation?id=${p.d_id}">详情</a>--%>
             </td>
-        </c:forEach>--%>
-    </tr>
+        </tr>
+    </c:forEach>
 </table>
 <%--个人中心--%>
-<a>个人中心</a>
+<a href="selectStudents">个人中心</a>
 
 </body>
 </html>

@@ -52,10 +52,11 @@ public class StudentHome {
 //        Dissertation stu =new Dissertation();
 //        stu.getStu_ID()=("116333540101");
         String stu_ID = "116333540101";
-        List<Dissertation> dissertationList = dissertationService.selectDissertationByStu_ID(stu_ID);
-        for (Dissertation dissertation : dissertationList) {
+        List<Dissertation> lists = dissertationService.selectDissertationByStu_ID(stu_ID);
+        for (Dissertation dissertation : lists) {
             System.out.println("学生个人的论文提交情况："+dissertation);
         }
+        model.addAttribute("dissertation",lists);
         return "StudentHome";
 //        return null;
     }
