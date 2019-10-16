@@ -1,14 +1,19 @@
 package com.example.xxx.controller;
 
+import com.example.xxx.entity.Dissertation;
 import com.example.xxx.entity.Subjects;
 import com.example.xxx.entity.Teacher;
+import com.example.xxx.service.DissertationService;
 import com.example.xxx.service.SubjectsService;
 import com.example.xxx.service.TeacherServicce;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.security.auth.Subject;
@@ -27,19 +32,30 @@ public class StudentHome {
     private SubjectsService subjectsService;
     @Autowired
     private TeacherServicce teacherServicce;
+    @Autowired
+    private DissertationService dissertationService;
 
     /*
     * 查看学生主页
     * */
     @RequestMapping("Home")
 //    @ResponseBody
-    public String Home(Model model){
+    public String Home(Model model/*,String stu_ID*/){
+        //查看课题信息
         List<Teacher> teachers = teacherServicce.selectTeachers();
-        System.out.println("课题有："+teachers);
+        System.out.println("遍历前课题有："+teachers);
         for (Teacher teacher : teachers) {
-            System.out.println("课题有：" + teacher);
+            System.out.println("遍历后课题有：" + teacher);
         }
         model.addAttribute("teachers",teachers);
+        //查看论文情况
+//        Dissertation stu =new Dissertation();
+//        stu.getStu_ID()=("116333540101");
+        String stu_ID = "116333540101";
+        List<Dissertation> dissertationList = dissertationService.selectDissertationByStu_ID(stu_ID);
+        for (Dissertation dissertation : dissertationList) {
+            System.out.println("学生个人的论文提交情况："+dissertation);
+        }
         return "StudentHome";
 //        return null;
     }

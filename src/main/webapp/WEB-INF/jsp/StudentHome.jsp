@@ -59,7 +59,7 @@
         <td>评分</td>
     </tr>
     <tr>
-        <%--<c:forEach items="dissertation" var="p">
+        <%--<c:forEach items="Dissertation" var="p">
             <td>${p.d_id}</td>
             <td>${p.d_name}</td>
             <td>${p.d_comment}</td>
