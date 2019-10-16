@@ -1,5 +1,6 @@
 package com.example.xxx.service;
 
+import com.example.xxx.entity.Students;
 import com.example.xxx.mapper.StudentsMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,6 +20,31 @@ import java.util.List;
 public class StudentService {
     @Autowired
     private StudentsMapper studentsMapper;
+
+    public Students selectStudentByStu_ID(String stu_id) {
+        Students student = studentsMapper.selectStudentByStu_ID(stu_id);
+        return student;
+    }
+
+    public boolean updatePasswordByStu_ID(String password) {
+        return true;
+    }
+
+    public boolean updatePhoneByStu_ID(String phone) {
+        return true;
+    }
+
+    public boolean updateAddressByStu_ID(String address) {
+        return true;
+    }
+
+    public boolean updateStudentByStu_ID(Students students) {
+        boolean student = studentsMapper.updateStudentByStu_ID(students);
+        if (student == false) {
+            return false;
+        }
+        return true;
+    }
 
     /*public List<Subject> selectSubjectss() {
         List<Subject> subjects = studentsMapper.selectSubjectss();

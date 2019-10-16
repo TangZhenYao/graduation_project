@@ -1,9 +1,11 @@
 package com.example.xxx.controller;
 
 import com.example.xxx.entity.Dissertation;
+import com.example.xxx.entity.Students;
 import com.example.xxx.entity.Subjects;
 import com.example.xxx.entity.Teacher;
 import com.example.xxx.service.DissertationService;
+import com.example.xxx.service.StudentService;
 import com.example.xxx.service.SubjectsService;
 import com.example.xxx.service.TeacherServicce;
 import org.apache.ibatis.annotations.Param;
@@ -34,6 +36,8 @@ public class StudentHome {
     private TeacherServicce teacherServicce;
     @Autowired
     private DissertationService dissertationService;
+    @Autowired
+    private StudentService studentService;
 
     /*
     * 查看学生主页
@@ -72,6 +76,34 @@ public class StudentHome {
         model.addAttribute("subjects",subjects);
 //        model.addAttribute(subjects);
         return "subjects_detailed";
+    }
+    /*
+    * 个人中心
+    *
+    * */
+    @RequestMapping("selectStudent")
+    public String selectStudent(Model model,String stu_ID){
+        System.out.println("要前往的个人中心的stu_ID："+stu_ID);
+        Students student = studentService.selectStudentByStu_ID(stu_ID);
+        System.out.println("学生个人中心信息："+student);
+        model.addAttribute("s",student);
+        return "StudentPersonalCenter";
+    }
+    /*
+    * 修改个人信息
+    * */
+    @RequestMapping()
+    public String updateStudentByStu_ID(Students students,Model model){
+        System.out.println("要修改的信息："+students);
+        boolean student = studentService.updateStudentByStu_ID(students);
+        if (student == false) {
+            System.out.println("修改失败");
+            model.addAttribute("prompt","修改失败");
+            return "forward:/Home";
+        }else
+            System.out.println("修改成功");
+        model.addAttribute("prompt","修改成功");
+        return "forward:/Home";
     }
 
 }

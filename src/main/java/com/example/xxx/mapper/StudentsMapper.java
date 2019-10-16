@@ -19,5 +19,9 @@ public interface StudentsMapper {
 
     public Students selectByStu_IDAndPassword(/*@Param("stu_id")*/ String stu_ID,/*@Param("s_password") */String s_password);
 
+    public Students selectStudentByStu_ID(String stu_id);
+
+    public boolean updateStudentByStu_ID(Students students);
+
 //    public List<Subject> selectSubjectss();
 }

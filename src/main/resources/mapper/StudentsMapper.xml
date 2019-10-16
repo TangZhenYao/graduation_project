@@ -6,4 +6,26 @@
         select * from students where stu_ID=#{stu_ID} and s_password=#{s_password}
     </select>
 
+    <!--个人登录-->
+    <select id="selectStudentByStu_ID" resultType="students">
+        select * from students where stu_ID=#{stu_ID}
+    </select>
+
+    <!--修改个人信息-->
+    <update id="updateStudentByStu_ID" parameterType="students">
+        update students
+        <set>
+            <if test="s_password !=null and !s_password.equals('')">
+                s_password=#{s_password},
+            </if>
+            <if test="s_address !=null and !s_address.equals('')">
+                s_address=#{s_address},
+            </if>
+            <if test="s_phone !=null and !s_phone.equals('')">
+                s_phone=#{s_phone},
+            </if>
+        </set>
+        where stu_ID=#{stu_ID}
+    </update>
+
 </mapper>

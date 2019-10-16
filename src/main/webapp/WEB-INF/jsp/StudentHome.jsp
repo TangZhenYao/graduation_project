@@ -17,6 +17,7 @@
 </style>
 <body>
 <h1>欢迎${s_name}</h1>
+<h2>${prompt}</h2>
 <table border="10">
     <input type="hidden" name="stu_ID" id="stu_ID" value="" /><br/>
     <%--毕业设计题目--%>
@@ -72,7 +73,7 @@
     </c:forEach>
 </table>
 <%--个人中心--%>
-<a href="selectStudents">个人中心</a>
+<a href="selectStudent?stu_ID=116333540101">个人中心</a>
 
 </body>
 </html>
