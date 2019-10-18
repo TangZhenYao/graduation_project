@@ -68,7 +68,11 @@
             <td>${p.d_comment}</td>
             <td>${p.d_score}</td>
             <td>
-                <input type="submit" value="下载论文">
+                <form action="download" method="get">
+                    <input type="hidden" name="d_name" value="${p.d_name}">
+                    <input type="submit" value="下载论文">
+                </form>
+
                 <%--<a href="selectDissertation?id=${p.d_id}">详情</a>--%>
             </td>
         </tr>

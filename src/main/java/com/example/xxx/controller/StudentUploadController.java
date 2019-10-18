@@ -97,8 +97,9 @@ public class StudentUploadController {
     * 实现文件下载
     * */
     @RequestMapping("/download")
-    public String downLoad(HttpServletResponse response) throws UnsupportedEncodingException {
-        String filename="2.xlsx";
+    public String downLoad(HttpServletResponse response,String d_name) throws UnsupportedEncodingException {
+//        String filename="2.xlsx";
+        String filename = d_name;
         String filePath = "F:/论文" ;
         File file = new File(filePath + "/" + filename);
         if(file.exists()){ //判断文件父目录是否存在
