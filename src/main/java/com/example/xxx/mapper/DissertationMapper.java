@@ -2,6 +2,7 @@ package com.example.xxx.mapper;
 
 import com.example.xxx.entity.Dissertation;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -15,4 +16,7 @@ import java.util.List;
 @Mapper
 public interface DissertationMapper {
     public List<Dissertation> selectDissertationByStu_ID(String stu_id);
+    public Dissertation selectDissertation_D_namByStu_ID(@Param("stu_ID") String stu_id, String d_name);
+
+    public boolean AddAddressByStu_ID(@Param("stu_ID") String stu_id, String d_name, String d_address);
 }

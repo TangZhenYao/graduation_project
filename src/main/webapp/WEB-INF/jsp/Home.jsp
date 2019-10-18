@@ -12,7 +12,8 @@
     <title>首页</title>
 </head>
 <body>
-${user}
+${prompt}
+<a href="goStudentHome">返回学生主页</a>
 
 </body>
 </html>

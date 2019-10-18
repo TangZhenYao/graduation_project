@@ -28,5 +28,21 @@ public class DissertationService {
 
         return list;
     }
+
+    public boolean selectDissertation_D_namByStu_ID(String stu_id,String d_name) {
+        Dissertation dissertation = dissertationMapper.selectDissertation_D_namByStu_ID(stu_id,d_name);
+        if (dissertation == null) {
+            return true;
+        }else
+            return false;
+    }
+
+    public Boolean addAddressByStu_ID(String stu_id, String d_name, String d_address) {
+        boolean addAddressByStu_ID = dissertationMapper.AddAddressByStu_ID(stu_id,d_name,d_address);
+        if (addAddressByStu_ID == true) {
+            return true;
+        }else
+        return false;
+    }
 }
 

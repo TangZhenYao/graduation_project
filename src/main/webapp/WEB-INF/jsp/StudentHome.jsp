@@ -9,6 +9,8 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
+    <meta http-equiv="Content-type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
     <title>学生首页</title>
 </head>
 <style>
@@ -72,6 +74,11 @@
         </tr>
     </c:forEach>
 </table>
+<form action="uploadStudentBystu_ID" method="post" enctype="multipart/form-data">
+    <input type="hidden" name="stu_ID" value="116333540101">
+    <p>选择文件: <input type="file" name="fileName"/></p>
+    <p><input type="submit" value="提交"/></p>
+</form>
 <%--个人中心--%>
 <a href="selectStudent?stu_ID=116333540101">个人中心</a>
 
